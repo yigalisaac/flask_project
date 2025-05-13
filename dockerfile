@@ -1,15 +1,17 @@
-# Use an official Python runtime as the base image
+# Use an official Python base image
 FROM python:3.11-slim
 
-# Set working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy requirements file and install dependencies
-COPY . .
-RUN install 
+# Copy requirements file into the container
+COPY requirements.txt .
 
-# Copy the rest of the application code
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# (Optional) Copy the rest of your app
 COPY . .
 
-# Run the app
+# (Optional) Command to run your app
 CMD ["python", "app.py"]
