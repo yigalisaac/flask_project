@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copy requirements file and install dependencies
 COPY . .
-RUN pip install 
+RUN install 
 
 # Copy the rest of the application code
 COPY . .
